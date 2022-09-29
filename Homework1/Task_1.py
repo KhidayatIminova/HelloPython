@@ -5,9 +5,7 @@
 # - 7 -> да
 # - 1 -> нет
 
-a = (input('Введите a: '))
-# 
-# a = '4'
+a = (input('Введите число дня недели от 1 до 7: '))
 
 print(type(a))
 print(a.isdigit())
@@ -20,8 +18,6 @@ def Week_days (num):
         print("Рабочий день")
     
 if a.isdigit() == True and 0 < int (a) < 8:
-    # if int (a) == 1:
-    #  print ('УРА, ДНИ НЕДЕЛИ!')
     Week_days (a)
 else:
      print('Правильна цыфры тыкай!!')
