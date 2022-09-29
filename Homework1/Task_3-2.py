@@ -22,6 +22,6 @@ def Get_distance(a,b):
 if check_type == 0:
     a = [x1,y1]
     b = [x2,y2]
-    print (f"Расстояние между точкой А [{a}] и B [{b}] составляет {Get_distance(a,b)}")
+    print (f'Расстояние между точкой А [{a}] и B [{b}] составляет {Get_distance(a,b)}')
 else:
     print ('\nАйяйяй! Координата должна быть числом!\n')

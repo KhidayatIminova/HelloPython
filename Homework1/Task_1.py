@@ -13,12 +13,12 @@ print(a.isdigit())
 def Week_days (num):
     
     if int (num) == 6 or int (num) ==7:
-        print("Выходной")
+        print('Выходной!!! D')
     elif 0 < int (num) < 6:
-        print("Рабочий день")
+        print('Рабочий день :(')
     
 if a.isdigit() == True and 0 < int (a) < 8:
     Week_days (a)
 else:
-     print('Правильна цыфры тыкай!!')
+     print('\nДень недели какой-то неправильный...\n')
 
