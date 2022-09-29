@@ -12,7 +12,7 @@ def check_quadrant(x,y):
     x = float(x)
     y = float(y)
     if x == 0 and y == 0:
-        print(f"Точка с координатами [{x}, {y}] является началом координат")
+        print(f"Точка с координатами [{x}; {y}] является началом координат")
         return
     elif x > 0 and y > 0:
         quad = 1
@@ -23,5 +23,5 @@ def check_quadrant(x,y):
     else:
         quad = 4
 
-    print(f"Точка с координатами [{x}, {y}] находится в {quad}-й четверти")
+    print(f"Точка с координатами [{x}; {y}] находится в {quad}-й четверти")
 
