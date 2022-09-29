@@ -5,28 +5,23 @@
 # - x=2; y=4-> 1
 # - x=-34; y=-30 -> 3
 
-# a = (input('Введите x: '))
-# y = (input('Введите y: '))
+x = (input('Введите координату х: '))
+y = (input('Введите координату y: '))
 
-# print (a.isnumeric())
-# print (a.isdecimal())
-# print (a.isdigit())
-# if a.isdigit() == True and float (a) != 0 and y.isdigit() == True and float (y) != 0:
-#     print ('[', a, ' , ', y, '] ')
-# else:
-#     print('Правильна цыфры тыкай!!')
+def check_quadrant(x,y):
+    x = float(x)
+    y = float(y)
+    if x == 0 and y == 0:
+        print(f"Точка с координатами [{x}, {y}] является началом координат")
+        return
+    elif x > 0 and y > 0:
+        quad = 1
+    elif x < 0 and y > 0:
+        quad = 2
+    elif x < 0 and y < 0:
+        quad = 3
+    else:
+        quad = 4
 
+    print(f"Точка с координатами [{x}, {y}] находится в {quad}-й четверти")
 
-k = []
-for i in range (2):
-    z = (input('Введите число: '))
-    k.append(z)
-
-print(k)
-
-# print (k.isnumeric())
-# print (k.isdecimal())
-# print (k.isdigit())
-
-print(type(k[0]))
-print(type(k[1]))
