@@ -9,7 +9,7 @@ os.system('cls')
 
 from random import randint
 count = 10
-nums = [randint(1,20)/1000 + randint(1,20) for i in range(count)]
+nums = [randint(1,20)/1000 + randint(1,20) for _ in range(count)]
 print (nums)
 
 def GetMinMaxDifferent(arr):

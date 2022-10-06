@@ -1,3 +1,4 @@
+from operator import truediv
 import os         # библиотека os подключает команды, которые есть обычном виндовом терминале
 os.system('cls')  # очистка терминала
 
@@ -33,3 +34,25 @@ def InputNumbers (inputText):
 #     day = input(f'Нифига неверно! Говорю ж, введите ЦИФРУ, обозначающую день недели')
 # day = int(day)
 
+
+
+# n = '-123'
+
+# minus = False
+# if n[0] == '-':
+#     minus = True
+#     n = [1:] # используем срез по нулевому элементу (убираем минус)
+
+
+# import random
+
+# n = int(input('Введите любое целое число: '))
+
+# for i in range(n):
+#     print(random.randrange(0, n))
+
+# from random import randint
+
+import random as rd
+for _ in range(10):
+    print (rd.randint(-100,100))

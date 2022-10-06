@@ -11,7 +11,7 @@ def InputNumber ():
     check_input = False
     while not check_input:
         try:
-            input_number = int(input('Введите целое число k: '))
+            input_number = int(input('Введите номер элемента последовательности Фибоначчи: '))
             check_input = True
         except ValueError:
             print ('Может еще раз? ')
@@ -20,6 +20,7 @@ def InputNumber ():
 k = abs(InputNumber()) # чтобы скрипт не сломался от отрицательного числа
 
 def fib(n):
+
 # для отрицательного диапазона    
 
             if n == -1:
@@ -44,5 +45,8 @@ def fib(n):
 list = []
 for e in range (-k, k+1):
     list.append(fib(e))     
+
+print(f'\nСписок чисел Фибоначчи в диапазоне элементов [n({-k}); n({k})]:\n')
 print(list)
+print()
 

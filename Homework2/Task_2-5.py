@@ -9,3 +9,6 @@ for i in range (10):
 
 print(f'{arr} -> ')
 
+arr.insert(2, 9)
+
+print(f'{arr} -> ')

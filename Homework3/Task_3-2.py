@@ -10,12 +10,12 @@ os.system('cls')
 
 from random import randint
 count = 10
-nums = [randint(1,20) for i in range(count)]
+nums = [randint(1,20) for _ in range(count)]
 print (nums)
 
 def PairMultiply(arr):
     for i in range(int(len(arr)/2)): #  в случае нечетного количества элементов исключаем из расчета средний элемент
         mult = arr[i] * arr[len(arr)-1-i]
-        print (f'A[{i}] * A[{len(arr)-1-i}] = {arr[i]} * {arr[len(arr)-1-i]} = {mult}')
+        print (f'a[{i}] * a[{len(arr)-1-i}] = {arr[i]} * {arr[len(arr)-1-i]} = {mult}')
 
 PairMultiply(nums)

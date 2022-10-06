@@ -9,11 +9,11 @@ os.system('cls')
 
 from random import randint
 count = 10
-nums = [randint(1,20) for i in range(count)]
+nums = [randint(1,20) for _ in range(count)]
 print (nums)
 
 sum = 0
-print (f'Элементы с нечетными индексами: ', end=' ' ) # исходя из привденного в условии примера принимаем что позиция = индекс
+print (f'Элементы с нечетными индексами: ', end=' ' ) # исходя из приведенного в условии примера принимаем что позиция = индекс
 for i in range(1, len(nums), 2):  # начинаем с индекса 1 с приращением 2
     
     sum = sum + nums[i]
