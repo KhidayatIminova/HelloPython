@@ -4,42 +4,39 @@ path1 = 'tsk4-51.txt'
 path2 = 'tsk4-52.txt'
 path_sum = 'tsk4-53.txt'
 
+import os         
+os.system('cls')
+
+
 # def ReadData(path):
 #     with open(str(path), 'r') as data:
 #         pol = data.read()
 #     return pol
 
 
-s = open(path1, 'r')
-print(s)
+# p1 = open(path1, 'r')
+# print(p1)
 
-# for line in s:
-#     print(line)
-s.close()
+# p2 = open(path2, 'r')
+# print(p2)
 
-# s = ReadData(path1)
-# print(s)
-# print(len(s))
-# print(type(s))
-# s.replace(" ","")
-# print(s)
+p1 = '64*x^4 + 65*x^3 + 74*x^2 + 71*x + 18 = 0'
+p2 = '34*x^3 + 36*x^2 + 92*x + 53 = 0'
+
+print(len(p1))
+print(len(p2))
+
+p1 = p1.strip()
+print(len(p1))
+print(p1.count('^4'))
 
 
-# def convert_pol(pol):
-#     pol = pol.replace(" ","???")
+pol1 = p1.split()
+pol1 = p1.replace('+','')
+pol1 = pol1.replace('= 0','')
+pol1 = pol1.replace('*',' ')
+print(pol1)
 
-#     return pol
 
-# print(convert_pol(s))
 
-# def convert_pol(pol):
-#     pol = pol.replace('= 0', '')
-#     pol = re.sub("[*|^| ]", " ", pol).split('+')
-#     pol = [char.split(' ') for char in pol]
-#     pol = [[x for x in list if x] for list in pol]
-#     for i in pol:
-#         if i[0] == 'x': i.insert(0, 1)
-#         if i[-1] == 'x': i.append(1)
-#         if len(i) == 1: i.append(0)
-#     pol = [tuple(int(x) for x in j if x != 'x') for j in pol]
-#     return pol
+

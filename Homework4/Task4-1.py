@@ -4,6 +4,9 @@
 
 # - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
 
+import os         
+os.system('cls')
+
 def InputNumber ():   
     check_input = False
     while not check_input:
@@ -17,6 +20,6 @@ def InputNumber ():
 n = abs(InputNumber())
 d = 1 / (10**n)
 
-print (f'd = ', {d}, 'n = ', {n}, '10^n = ', {10**n})
-print(f'π =', {float(round(103993/33102, n))}) # для оценки числа pi воспользуемся одним из рациональных приближений (103993/33102)
+print (f'Задана точность d = ', d)
+print(f'π =', float(round(103993/33102, n))) # для оценки числа pi воспользуемся одним из рациональных приближений (103993/33102)
 

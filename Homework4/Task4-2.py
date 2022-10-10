@@ -23,4 +23,4 @@ def GetNumberFactor(n):
             arr.append(i)
     return arr
 
-print(f'\nПростыми множителями натурального числа {n} являются числа', *GetNumberFactor(n), end='\n\n')
+print(f'\nПростыми множителями натурального числа {n} являются числа', GetNumberFactor(n), end='\n\n')

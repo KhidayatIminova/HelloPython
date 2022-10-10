@@ -21,7 +21,7 @@ def InputNumber ():
             print ('У этого полинома нету членов! Еще разок? ')
     return input_number
 
-k = InputNumber()
+k = abs(InputNumber()) # полином будет без отрицательных степеней
 
 from random import randint
 nums = [randint(0,100) for _ in range(k+1)] # количество коэффициентов = степень + 1
@@ -32,7 +32,7 @@ def GetPolynom(count, nums):
     left_side_pol = []
     for i in range (count+1):
         
-        # Условия для создания элементов левой части полинома (без учета отрицательных степеней)
+        # Условия для создания элементов левой части полинома
         
         if i == 1:
             s = str(nums[i]) + '*x' # замена для 'x' в первой степени
@@ -57,6 +57,8 @@ def GetPolynom(count, nums):
 print(f'\n{GetPolynom(k, nums)}\n')
 
 data = open('tsk4-4.txt', 'w') 
+# data = open('tsk4-51.txt', 'w') 
+# data = open('tsk4-52.txt', 'w') 
 data.writelines(GetPolynom(k, nums)) 
 data.close() 
 
