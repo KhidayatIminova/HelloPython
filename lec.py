@@ -216,7 +216,6 @@
 # Строки
 
 
-from winreg import HKEY_LOCAL_MACHINE
 
 
 text = 'cъешь еще этих мягких французских булок'
@@ -510,8 +509,258 @@ text = 'cъешь еще этих мягких французских булок
 
 # Кортежи
 
-a, b = 3, 4 # множественное присваивание
+# a, b = 3, 4 # множественное присваивание
 
-(a) = (3, 4) # кортеж
-print(a)
-print(a[0]) # обращение к конкретному элементу
+# (a) = (3, 1, 2, 4) # кортеж
+# print(a)
+# print(a[0]) # обращение к конкретному элементу
+
+# print(a[-1]) # обращение к последнему элементу (по аналогии со списками)
+
+# # кортеж это неизменяемый "список"
+
+# t = ()
+# print(type(t)) # tuple
+# t = (1,) # для определения кортежа из одного элемента необходима запятая, иначе определится как число
+# print(type(t)) # tuple
+# t = (1)
+# print(type(t)) # int
+# t = (28, 9, 1990)
+# print(type(t)) # tuple
+# colors = ['red', 'green', 'blue']
+# print(colors) # red green blue
+# t=tuple(colors) 
+# print(t) # red green blue
+# t[0] = 'black' # TypeError... кортеж - неизменяемый "список"
+
+# перебор кортежа
+
+# a = (3, 4, 5)
+
+# for item in a:
+#     print(item) 
+
+# Можно распаковать кортеж в отдельные переменные через двойное преобразование
+
+# t = tuple(['red', 'green', 'blue']) # создаем список, конвертируем его в кортеж
+
+# red, green, blue = t # дальше кортежраспаковываем, превращаем его в три независимых переменных
+# # далее уже с ними работаем как с отдельными переменными
+# print('r:{} g:{} b:{}'.format(red, green, blue)) # r: red g: green b: blue 
+
+# Словари
+
+# это неупорядоченные коллекции произвольных объектов с доступом по ключу
+
+dictionary = {} # пустой словарь
+
+# чтобы не писать всё в одну строчку используется \
+
+# dictionary = \
+#     {
+#         'up': '^', # ключ 'up', значение по ключу '^'
+#         'down': 'v',
+#         'left': '<',
+#         'right': '>' 
+#     }
+# print(dictionary) # {'up': '^','down': 'v','left': '<','right': '>'}
+# print(dictionary['left']) # < (для словаря указывается не индекс, а то значение, которое определили при описании)
+
+# типы ключей могут отличаться
+
+# for k in dictionary.keys(): # все ключи
+#     print (k)
+
+
+# for k in dictionary.values(): # все значения
+#     print (k)
+
+# # или так:
+
+# for k in dictionary: 
+#     print (k) # все ключи
+
+# for k in dictionary: 
+#     print (dictionary[k]) # все значения
+
+# print(dictionary['type']) # KeyError: 'type'
+# del dictionary['left'] # удаление элемента
+
+# вывод парами
+
+# for item in dictionary: # for (k,v) in dictionary.item():
+#     print('{}: {}'.format(item, dictionary[item]))
+# # up: ^
+# # down: v
+# # left: <
+# # right: >
+
+# print(dictionary['up'])
+# dictionary['up'] = 'Upper'
+# print(dictionary['up'])
+
+# Множества
+
+# colors = {'red', 'green', 'blue'} # заменим квадратные скобки [] на {}
+# print(type(colors)) # set - тип данных множество
+# print(colors) # {'red', 'green', 'blue'}
+
+# colors.add('red') # добавить. В данном случае red уже есть, ошибок не будет, но и добавления не будет
+# print(colors) # {'green', 'blue', 'red'} # происходит смещение элементов - почему? (незакомментировал код распаковки через двойное преобразование см.выше)
+# colors.add('gray')
+# print(colors) # {'gray', 'green', 'blue', 'red'}
+# colors.remove('red')
+# print(colors) # {'gray', 'green', 'blue'}
+# # colors.remove('red') # KeyError: 'red'
+# colors.discard('red') # ok исключить элемент?
+# print(colors) # {'gray', 'green', 'blue', 'red'}
+# colors.clear() # {}
+# print(colors) # set()
+
+# a = {1, 2, 3, 5, 8}
+# b = {2, 5, 8, 13, 21}
+# c = a.copy() # c = {1, 2, 3, 5, 8}
+# u = a.union(b) # u = {1, 2, 3, 5, 8, 13, 21}
+# i = a.intersection(b) # i = {8, 2, 5}
+# dl = a.difference(b) # dl = {1, 3}
+# dr = b.difference(a) # dr = {13, 21}
+
+# # Неизменяемые множества
+
+# q = a \
+#     .union(b) \
+#     .difference(a.intersection(b))
+# #{1, 21, 3, 13}
+
+# s = frozenset(a) # заморозка множества - никакие методы удаления/ добавления работать не будут
+
+
+# Списки (углубленно)
+
+# list1 = [1, 2, 3, 4, 5]
+# list2 = list1
+
+# for e in list1:
+#     print(e)
+# print()
+# for e in list2:
+#     print(e)
+
+# list1[0] = 123 # также меняется значение и во втором списке
+# list2[1] = 333 # также меняется значение и в первом списке
+
+# for e in list1:
+#     print(e)
+# print()
+# for e in list2:
+#     print(e)
+
+# print(list1.pop())
+
+
+
+# Лекция 3
+
+# Анонимные, lambda функции
+
+# Добустим есть несколько функций, которые могут понадобиться
+
+# def sum(x):
+#     return x+10
+
+# def mult(x):
+#     return x**2
+
+# def sum1(x):
+#     return x+22
+
+# допустим они могут понадобиться в программе 1 раз. Каким образом можно обойтись без явного описания:
+
+# # допустим есть некая функция
+
+# def f(x):
+#     return x**2
+
+# # у функции есть имя, следовательно есть тип
+
+# print(type(f)) # class 'function'
+
+# g = f # присвоим переменной g значение f (т.е. в переменную положим функцию целиком)
+
+# # теперь можно вызвать как f(), так и g() и работать это будет одинаково (логично))
+
+# print(f(1))
+# print(g(1))
+
+# # также будут совпадать типы
+# print(type(g))
+# # т.е. в контексте приложения есть переменная, которая хранит в себе функцию
+
+# def calc1(x):
+#     return x+10
+# print(calc1(10))
+
+# def calc2(x):
+#     return x**2
+# print(calc2(10))
+
+# # в идеале чтобы не плодить однотипные функции, нужно просто взять некую функцию calc, которая будет выполнять арифметическую операцию
+
+# # возьмем некую функцию math, где в качестве аргумета будет приходить какая-то операция, и соответственно какое-то число 
+
+# def math(op,x): # т.е. в функции аргументом выступает другая функция
+#     print(op(x))
+
+# math(calc2, 10)
+# math(calc1, 10)
+
+# def sum(x, y):
+#     return x+y
+
+# def mult(x, y):
+#     return x*y
+
+# def calc(op, a, b):
+#     print(op(a,b))
+#     # return op(a,b)
+
+# calc(mult, 4, 5)
+
+# Лямбда - чтобы было красиво
+
+# def sum(x, y):
+#     return x+y
+# # f = sum # можно вот так
+
+# sum = lambda x, y: x+y # или вот так, что будет аналогично записи def sum()
+
+# def mult(x, y):
+#     return x*y
+
+# def calc(op, a, b):
+#     print(op(a,b))
+#     # return op(a,b)
+
+# # # calc(f, 4, 5)
+# # calc(sum, 4, 5)
+
+# #№ Или можно вообще пробросить лямбду сразу:
+
+# calc(lambda x, y: x+y, 4, 5)
+
+# List Comprehensions
+
+# Допустим хотим создать список из чётных чисел в диапазоне от 1 до 100
+
+# list=[]
+
+# for i in range(1, 101):
+#     if (i%2 == 0):
+#         list.append(i)
+# print(list)
+
+# list = [i for i in range(1,101)] # аналогичная запись в одну строку (для вывода четных и нечетных)
+# print(list)
+
+list = [i for i in range(1,21)] # 
+print(list)
