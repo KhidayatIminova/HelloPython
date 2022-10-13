@@ -5,7 +5,9 @@ os.system('cls')
 
 # txt = input_text = input(f'Введите текст: ')
 
-txt = 'Шла Саша по шоссе, и сосала абвушку'
+# txt = 'Шла Саша по шоссе, и сосала сушку'
+
+txt = 'Карл у Клары украл кораллы, Клара у Карла украла кларнет'
 
 print(txt)
 print()
@@ -22,7 +24,7 @@ def censored(txt1, del_txt):
             count +=1
     txt1 = ' '.join(txt1)
 
-    print(txt1)
+    print(f'\n{txt1}')
 
     print(f'\nНайдено и удалено {count} слов, содержащих "{del_txt}"\n')
     txt1 = txt1.replace('!!!CENSORED!!! ', '')
