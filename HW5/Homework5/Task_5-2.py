@@ -9,15 +9,15 @@ os.system('cls')
 from random import randint
 
 candies = 56
-lot = randint(1,2)
 
 player1='Анечка'
 player2='Вовочка'
 
+lot = randint(1,2)
 if lot == 1:
-    print (f'Результат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
+    print (f'На столе лежит {candies} конфет. \nРезультат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
 else:
-    print (f'Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми кофет за раз!!!')
+    print (f'На столе лежит {candies} конфет. Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми кофет за раз!!!')
 
 def InputNumber (player):   
     check_input = False
@@ -26,7 +26,7 @@ def InputNumber (player):
         try:
             input_number = int(input(f'{player}, возьми конфетку - сколько ты хочешь?: '))
             if input_number < 1 or input_number > 28:
-                print(f"{player}, а морда не треснет от такого количества? ;) Попробуй ещё ) ")
+                print(f"{player}, а личико не треснет от такого количества? ;) Попробуй ещё ) ")
                 check_input = False
             else:
                 check_input = True
@@ -34,27 +34,23 @@ def InputNumber (player):
             print ('Может еще раз? ')     
     return input_number
 
-def p_print(name, k, value):
-    print(f"{name} взял {k}, на столе осталось  {value} конфет.")
-
 def game(player1, player2, lot, candies):
-    while candies > 28:
+    while candies > 0: # исходя из условия задачи, остаток конфет на столе не ограничивается 28-ю конфетами, следовательно игра продолжается до того момента, пока на стол не пуст
         if lot == 1:
             k = InputNumber(player1)
             candies -= k
             lot = 2
-            p_print(player1, k, candies)
+            print(f'На столе осталось {candies} конфет')
         else:
             k = InputNumber(player2)
-            # counter2 += k
             candies -= k
             lot = 1
-            p_print(player2, k, candies)
+            print(f'На столе осталось {candies} конфет')
     return lot
 
 game(player1,player2,lot,candies)
 
 if lot == 1:
-    print(f'Победил {player1}!!!')
+    print(f'\nКонфеты на столе закончились! Победил(а) {player1}!!!')
 else:
-    print(f'Победил {player2}!!!')
+    print(f'\nКонфеты на столе закончились! Победил(а) {player2}!!!')
