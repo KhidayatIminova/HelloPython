@@ -3,23 +3,23 @@
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом"
 
-## Добавляем бота
-
 import os         
 os.system('cls')
 
+# человек против бота
+
 from random import randint
 
-candies = 56
+sweet_candies = 56
 
 player1='Анечка'
 player2='Бот'
 
-lot = randint(1,2)
-if lot == 1:
-    print (f'На столе лежит {candies} конфет. \nРезультат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
+turn = randint(0,1) # идентификатор очереди хода
+if turn == 0:
+    print (f'На столе лежит {sweet_candies} конфет. \nРезультат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
 else:
-    print (f'На столе лежит {candies} конфет. Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми кофет за раз!!!')
+    print (f'На столе лежит {sweet_candies} конфет. Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми конфет за раз!!!')
 
 def InputNumber (player):   
     check_input = False
@@ -36,25 +36,33 @@ def InputNumber (player):
             print ('Может еще раз? ')     
     return input_number
 
-def game(player1, player2, lot, candies):
-    while candies > 0:
-        if lot == 1:
+def get_winner(sweet, turn_win):
+    if turn_win == 0:
+        print(f'\nИ сделав последний ход, забрав со стола оставшиеся {sweet} конфет побеждает {player1}!!!\n')
+    else:
+        print(f'\nИ сделав последний ход, забрав со стола оставшиеся {sweet} конфет побеждает {player2}!!!\n')
+
+def game(player1, player2, turn, sweet):
+    while sweet > 28: # исходя из условия задачи, последний ход =<28, 
+        if turn == 0:
             k = InputNumber(player1)
-            candies -= k
-            lot = 2
-            print(f'На столе осталось {candies} конфет\n')
+            sweet -= k
+            turn = 1
+            print(f'На столе осталось {sweet} конфет\n')
         else:
             # k = InputNumber(player2)
-            k = randint(1,28) # вместо ввода с клавиатуры для второго игрока используем генератор случайных чисел
-            candies -= k
-            lot = 1
-            print(f'\nБот взял {k} конфет. ')
-            print(f'На столе осталось {candies} конфет\n')
-    return lot
+            k = randint(1,28)
+            sweet -= k
+            turn = 0
+            print(f'Бот взял {k} конфет')
+            print(f'На столе осталось {sweet} конфет\n')
+    get_winner(sweet, turn)
+    return sweet, turn
 
-game(player1,player2,lot,candies)
+game(player1,player2,turn,sweet_candies)
 
-if lot == 1:
-    print(f'\nКонфеты на столе закончились! Победил(а) {player1}!!!')
-else:
-    print(f'\nКонфеты на столе закончились! Победил(а) {player2}!!!')
+
+
+
+
+

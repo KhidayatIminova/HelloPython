@@ -6,18 +6,20 @@
 import os         
 os.system('cls')
 
+# человек против человека
+
 from random import randint
 
-candies = 56
+sweet_candies = 2021
 
 player1='Анечка'
 player2='Вовочка'
 
-lot = randint(1,2)
-if lot == 1:
-    print (f'На столе лежит {candies} конфет. \nРезультат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
+turn = randint(0,1) # идентификатор очереди хода
+if turn == 0:
+    print (f'На столе лежит {sweet_candies} конфет. \nРезультат жеребьёвки: 1-й ход делает {player1}. Брать не больше 28-ми конфет за раз!!!')
 else:
-    print (f'На столе лежит {candies} конфет. Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми кофет за раз!!!')
+    print (f'На столе лежит {sweet_candies} конфет. Результат жеребьёвки: 1-й ход делает {player2}. Брать не больше 28-ми конфет за раз!!!')
 
 def InputNumber (player):   
     check_input = False
@@ -34,23 +36,31 @@ def InputNumber (player):
             print ('Может еще раз? ')     
     return input_number
 
-def game(player1, player2, lot, candies):
-    while candies > 0: # исходя из условия задачи, остаток конфет на столе не ограничивается 28-ю конфетами, следовательно игра продолжается до того момента, пока на стол не пуст
-        if lot == 1:
+def get_winner(sweet, turn_win):
+    if turn_win == 0:
+        print(f'\nИ сделав последний ход, забрав со стола оставшиеся {sweet} конфет побеждает {player1}!!!\n')
+    else:
+        print(f'\nИ сделав последний ход, забрав со стола оставшиеся {sweet} конфет побеждает {player2}!!!\n')
+
+def game(player1, player2, turn, sweet):
+    while sweet > 28: # исходя из условия задачи, последний ход =<28, 
+        if turn == 0:
             k = InputNumber(player1)
-            candies -= k
-            lot = 2
-            print(f'На столе осталось {candies} конфет')
+            sweet -= k
+            turn = 1
+            print(f'На столе осталось {sweet} конфет')
         else:
             k = InputNumber(player2)
-            candies -= k
-            lot = 1
-            print(f'На столе осталось {candies} конфет')
-    return lot
+            sweet -= k
+            turn = 0
+            print(f'На столе осталось {sweet} конфет')
+    get_winner(sweet, turn)
+    return sweet, turn
 
-game(player1,player2,lot,candies)
+game(player1,player2,turn,sweet_candies)
 
-if lot == 1:
-    print(f'\nКонфеты на столе закончились! Победил(а) {player1}!!!')
-else:
-    print(f'\nКонфеты на столе закончились! Победил(а) {player2}!!!')
+
+
+
+
+
